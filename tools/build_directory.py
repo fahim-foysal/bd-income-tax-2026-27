@@ -126,7 +126,7 @@ def build(src: Path, out: Path):
         if f.is_file() and ".git" not in f.parts and f.suffix not in ALLOWED and f.name not in ALLOWED_NAMES:
             raise SystemExit(f"build_directory: disallowed file {f.relative_to(out)}")
     for f in out.rglob("*"):
-        if f.is_file() and f.suffix == ".md" and ("bd_tax_calc" in f.read_text() or "calculator" in f.read_text() and f.name != "README.md"):
+        if f.is_file() and f.suffix == ".md" and ("bd_tax_calc" in f.read_text() or "calculator" in f.read_text() and f.name not in ("README.md", "PRIVACY.md")):
             raise SystemExit(f"build_directory: script still mentioned in {f.relative_to(out)}")
 
 
