@@ -83,6 +83,12 @@ python scripts/bd_tax_calc.py --selftest examples/nbr-guide-2026-27.json --rules
 ```
 Pull requests are welcome, especially more real filings and non-resident cases.
 
+## What it runs and what it sends
+- **Runs:** one local Python script, `scripts/bd_tax_calc.py` (standard library only). It reads a JSON file of figures and the rules file in this repo, and prints the computation.
+- **Sends:** nothing. The plugin makes no network calls, has no MCP servers or hooks, and does not store your data anywhere. Your documents stay in your Claude conversation.
+- **Reads:** only the files you give Claude for the task (salary certificate, bank statements, investment certificates).
+- When you ask it to help on etaxnbr.gov.bd, Claude uses its own browser tools and never presses the final *Submit Return* without your explicit go-ahead. You log in and pay yourself.
+
 ## Disclaimer
 This is not legal or tax advice. It was tested on one real return; tax law and the e-Return portal change. You are responsible for the return you sign: check the figures against the official NBR guide, keep your proofs, and consult a tax practitioner for anything complex.
 
