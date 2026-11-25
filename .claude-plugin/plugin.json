@@ -1,15 +1,17 @@
 {
   "name": "bd-income-tax-return",
   "displayName": "Bangladesh Income Tax 2026-27",
-  "description": "Bangladesh individual income tax calculator and e-Return helper for tax year 2026-27 (NBR rules, Finance Act 2026).",
+  "description": "Bangladesh individual income tax calculation and e-Return helper for tax year 2026-27 (NBR rules, Finance Act 2026).",
   "icon": ".claude-plugin/icon.png",
-  "version": "2026.27.2",
+  "version": "2026.27.3",
   "author": {
     "name": "Fahim Foysal",
     "url": "https://github.com/fahim-foysal"
   },
   "homepage": "https://github.com/fahim-foysal/bd-income-tax-2026-27",
   "repository": "https://github.com/fahim-foysal/bd-income-tax-2026-27",
+  "supportUrl": "https://github.com/fahim-foysal/bd-income-tax-2026-27/issues",
+  "documentationUrl": "https://github.com/fahim-foysal/bd-income-tax-2026-27#readme",
   "license": "MIT",
   "keywords": [
     "bangladesh",
