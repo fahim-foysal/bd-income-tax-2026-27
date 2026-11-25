@@ -56,6 +56,10 @@ python scripts/bd_tax_calc.py examples/salaried-2026-27.json --rules rules/2026-
 ```
 See the docstring at the top of the script for the input format.
 
+## Two editions
+- **`main` (this branch):** the full plugin with the Python calculator. Install it from GitHub as shown above.
+- **`directory` branch:** a no-code edition for Anthropic's plugin directory, which accepts scripts only from verified organizations. There, Claude computes by hand and checks itself against the NBR guide's worked examples; in testing it matched the calculator on 10 of 10 complicated cases. `tools/build_directory.py` generates it from `main`.
+
 ## Files
 All skill files live in `skills/bd-income-tax-return/`; `.claude-plugin/` makes the repo a Claude Code plugin marketplace.
 ```
@@ -76,6 +80,7 @@ Tax rules change every July with the Finance Act. Each tax year gets its own rep
 2. Add `references/rules-<year>.md` with page citations.
 3. Re-check the walkthrough against the live site, update the year in the `description` of `SKILL.md`, `.claude-plugin/` and this README, and rename the repo.
 4. Build the Claude.ai ZIP with `tools/build_zip.sh` and attach it to a GitHub release.
+5. Rebuild the Anthropic-directory edition with `python3 tools/build_directory.py --push`. The `directory` branch is generated, so never edit it by hand.
 
 The calculator covers every taxpayer type in the NBR guide's worked examples (thresholds by category, government pay scale, rent, agriculture/para 20A, business and turnover tax, capital gains, dividend, firm share, surcharges, car advance tax, filing-time incentive and late filing). Check it with (from `skills/bd-income-tax-return/`):
 ```bash
