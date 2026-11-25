@@ -1,0 +1,77 @@
+{
+  "tax_year": "2026-27",
+  "income_year": ["2025-07-01", "2026-06-30"],
+  "return_deadline": "2027-06-30",
+  "source": "NBR Aykor Nirdeshika 2026-2027; Finance Act 2026 (Act 96 of 2026), Schedule 2. Page numbers = NBR guide.",
+  "thresholds": {
+    "_page": "p.1, p.11, p.57",
+    "general": 400000,
+    "woman": 450000,
+    "senior": 450000,
+    "third_gender": 525000,
+    "disabled": 525000,
+    "freedom_fighter": 550000,
+    "july_fighter": 550000
+  },
+  "disabled_dependent_extra": 50000,
+  "slabs": [
+    [400000, 0.00],
+    [300000, 0.10],
+    [400000, 0.15],
+    [500000, 0.20],
+    [2000000, 0.25],
+    [null, 0.30]
+  ],
+  "salary_exemption": {"fraction": 0.3333333333333333, "cap": 500000},
+  "agriculture_exemption": 500000,
+  "agro_20a_exemption": 500000,
+  "rent": {"repairs_residential": 0.25, "repairs_commercial": 0.30, "adjustable_advance_pct": 0.10},
+  "special_rates": {
+    "_page": "p.48-52, p.103-105; Seventh Schedule",
+    "dividend": 0.15,
+    "cg_long": 0.15,
+    "cg_developer_flat": 0.15,
+    "cg_gold_jewellery": 0.05,
+    "cg_listed_securities": 0.15
+  },
+  "listed_securities_gain_exempt": 5000000,
+  "rebate": {
+    "income_pct": 0.03,
+    "investment_pct": 0.10,
+    "absolute_cap": 750000,
+    "category_caps": {"dps": 120000, "sanchayapatra": 500000, "govt_securities": 500000}
+  },
+  "minimum_tax": {"regular": 5000, "first_time_filer": 1000},
+  "surcharge": {
+    "_page": "p.71-74",
+    "wealth_bands": [[40000000, 0.00], [100000000, 0.10], [200000000, 0.20], [500000000, 0.30], [null, 0.35]],
+    "multi_car_or_big_house_rate": 0.10,
+    "tobacco_income_pct": 0.025
+  },
+  "car_ait": {
+    "_page": "p.74-75",
+    "cc": [[1500, 25000], [2000, 50000], [2500, 75000], [3000, 200000], [3500, 250000], [4500, 400000], [null, 500000]],
+    "kw": [[200, 25000], [300, 50000], [400, 75000], [null, 100000]],
+    "microbus_or_double_cabin": 40000,
+    "extra_car_pct": 0.5
+  },
+  "env_surcharge_cc": [[1500, 25000], [2000, 50000], [2500, 75000], [3000, 150000], [3500, 200000], [null, 350000]],
+  "turnover_tax": {
+    "_page": "Finance Act 2026 s.163(6)",
+    "default": 0.01,
+    "tobacco": 0.03,
+    "carbonated_beverage": 0.025,
+    "mobile_operator": 0.015,
+    "new_manufacturer_first_3_years": 0.002,
+    "not_applicable": 0
+  },
+  "filing_time": {
+    "_page": "p.4, p.70, p.78",
+    "jul-sep": {"type": "incentive", "pct": 0.05, "cap": 25000},
+    "oct-dec": {"type": "none"},
+    "jan-mar": {"type": "extra", "pct": 0.02, "floor": 3000},
+    "apr-jun": {"type": "extra", "pct": 0.05, "floor": 5000},
+    "late": {"type": "extra", "pct": 0.10, "floor": 5000},
+    "late_after_notice": {"type": "extra", "pct": 0.15, "floor": 10000}
+  }
+}

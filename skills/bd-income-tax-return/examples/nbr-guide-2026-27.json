@@ -1,0 +1,970 @@
+{
+ "_note": "Worked examples from NBR Aykor Nirdeshika 2026-2027 (page in the name). 'expect' holds the figures the guide prints. Run: python scripts/bd_tax_calc.py --selftest examples/nbr-guide-2026-27.json --rules rules/2026-27.json",
+ "cases": [
+  {
+   "name": "p28 govt employee (Ripon)",
+   "input": {
+    "employment": [
+     {
+      "govt_pay_scale": true,
+      "receipts": 791000,
+      "exempt_allowances": 29300
+     }
+    ],
+    "investments": [
+     {
+      "category": "gpf",
+      "amount": 168000
+     },
+     {
+      "category": "welfare_fund",
+      "amount": 1800
+     },
+     {
+      "category": "group_insurance",
+      "amount": 1200
+     },
+     {
+      "category": "dps",
+      "amount": 60000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 43650,
+    "rebate": 23100,
+    "net": 20550
+   }
+  },
+  {
+   "name": "p30 govt employee with disability",
+   "input": {
+    "category": "disabled",
+    "employment": [
+     {
+      "govt_pay_scale": true,
+      "receipts": 791000
+     }
+    ],
+    "investments": [
+     {
+      "category": "gpf",
+      "amount": 168000
+     },
+     {
+      "category": "welfare_fund",
+      "amount": 1800
+     },
+     {
+      "category": "group_insurance",
+      "amount": 1200
+     },
+     {
+      "category": "dps",
+      "amount": 60000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 26600,
+    "net": 5000
+   }
+  },
+  {
+   "name": "p35 rent, woman (Ayesha)",
+   "input": {
+    "category": "woman",
+    "rent": [
+     {
+      "annual_rent": 1440000,
+      "let_fraction": 0.666666666667,
+      "municipal_tax": 24000,
+      "land_revenue": 900,
+      "loan_interest": 30000,
+      "adjustable_advance_closing": 1280000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 1171400,
+    "gross_tax": 94280
+   }
+  },
+  {
+   "name": "p37 agriculture only + bank (Rakibul)",
+   "input": {
+    "agriculture": 1200000,
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 600000,
+      "tds": 60000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 1300000,
+    "gross_tax": 130000,
+    "net": 70000
+   }
+  },
+  {
+   "name": "p38 agriculture + business, no exemption",
+   "input": {
+    "agriculture": 1200000,
+    "business": [
+     {
+      "net_income": 300000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 600000,
+      "tds": 60000
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 200000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 2100000,
+    "gross_tax": 315000,
+    "rebate": 20000,
+    "net": 235000
+   }
+  },
+  {
+   "name": "p39 fish hatchery 20A, woman (Tanzina)",
+   "input": {
+    "category": "woman",
+    "agro_20a": 1100000,
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 450000,
+      "tds": 45000
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 100000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 1050000,
+    "gross_tax": 75000,
+    "net": 20000
+   }
+  },
+  {
+   "name": "p40 dairy + hatchery (Kamal)",
+   "input": {
+    "agriculture": 650000,
+    "agro_20a": 720000,
+    "investments": [
+     {
+      "category": "dps",
+      "amount": 60000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 870000,
+    "gross_tax": 55500,
+    "net": 49500
+   }
+  },
+  {
+   "name": "p49 listed share gain (Abdul Hye)",
+   "input": {
+    "business": [
+     {
+      "net_income": 1500000
+     }
+    ],
+    "special_rate_income": [
+     {
+      "kind": "cg_listed_securities",
+      "amount": 6000000
+     }
+    ],
+    "investments": [
+     {
+      "category": "mutual_fund",
+      "amount": 1200000
+     }
+    ],
+    "advance_tax": 150000
+   },
+   "expect": {
+    "gross_tax": 320000,
+    "rebate": 45000,
+    "net": 125000
+   }
+  },
+  {
+   "name": "p50 land sale above deed value (Minhaz)",
+   "input": {
+    "business": [
+     {
+      "net_income": 800000
+     }
+    ],
+    "special_rate_income": [
+     {
+      "kind": "cg_long",
+      "amount": 47500000,
+      "tds": 2500000
+     },
+     {
+      "kind": "cg_long",
+      "amount": 20000000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 10170000,
+    "net": 7670000
+   }
+  },
+  {
+   "name": "p51 gold + developer flat (Nafijul)",
+   "input": {
+    "special_rate_income": [
+     {
+      "kind": "cg_gold_jewellery",
+      "amount": 1200000
+     },
+     {
+      "kind": "cg_developer_flat",
+      "amount": 11000000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 1710000
+   }
+  },
+  {
+   "name": "p55 firm share (Niamat)",
+   "input": {
+    "other_income": [
+     {
+      "head": "firm_share",
+      "amount": 300000
+     },
+     {
+      "head": "other",
+      "description": "House property",
+      "amount": 400000,
+      "tds": 0
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 250000
+     }
+    ]
+   },
+   "expect": {
+    "firm_relief": 12857,
+    "rebate": 12000,
+    "net": 5143
+   }
+  },
+  {
+   "name": "p57 father of 2 disabled children",
+   "input": {
+    "disabled_dependents": 2,
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 600000,
+      "tds": 0
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 10000
+   }
+  },
+  {
+   "name": "p57 mother of 2 disabled children",
+   "input": {
+    "category": "woman",
+    "disabled_dependents": 2,
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 700000,
+      "tds": 0
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 15000
+   }
+  },
+  {
+   "name": "p61 govt employee, woman (Paris)",
+   "input": {
+    "category": "woman",
+    "employment": [
+     {
+      "govt_pay_scale": true,
+      "receipts": 791000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "other",
+      "description": "House property",
+      "amount": 125000,
+      "tds": 0
+     },
+     {
+      "head": "financial_assets",
+      "description": "Sanchayapatra interest",
+      "amount": 50000,
+      "tds": 5000
+     },
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 14000,
+      "tds": 1400
+     }
+    ],
+    "investments": [
+     {
+      "category": "gpf",
+      "amount": 96000
+     },
+     {
+      "category": "welfare_fund",
+      "amount": 3000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 150000
+     },
+     {
+      "category": "life_insurance",
+      "amount": 18000
+     },
+     {
+      "category": "listed_shares",
+      "amount": 50000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 64500,
+    "rebate": 29400,
+    "net": 28700
+   }
+  },
+  {
+   "name": "p62 retired govt pensioner (Saifuddin)",
+   "input": {
+    "other_income": [
+     {
+      "head": "other",
+      "description": "House property",
+      "amount": 520000,
+      "tds": 0
+     },
+     {
+      "head": "financial_assets",
+      "description": "Sanchayapatra interest",
+      "amount": 50000,
+      "tds": 5000
+     }
+    ],
+    "agriculture": 110000,
+    "exempt_income": [
+     {
+      "description": "Pension",
+      "amount": 360000
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 150000
+     },
+     {
+      "category": "life_insurance",
+      "amount": 48000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 680000,
+    "gross_tax": 28000,
+    "rebate": 19800,
+    "net": 3200
+   }
+  },
+  {
+   "name": "p64 zakat-centre donation deducted (Shishir)",
+   "input": {
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 2920000,
+      "tds": 0
+     }
+    ],
+    "income_deductions": [
+     {
+      "description": "Center for Zakat Management",
+      "amount": 70000
+     }
+    ],
+    "investments": [
+     {
+      "category": "life_insurance",
+      "amount": 60000
+     },
+     {
+      "category": "dps",
+      "amount": 240000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 150000
+     },
+     {
+      "category": "zakat_fund",
+      "amount": 50000
+     },
+     {
+      "category": "mutual_fund",
+      "amount": 700000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 502500,
+    "rebate": 85500,
+    "tax_after_rebate": 417000
+   }
+  },
+  {
+   "name": "p66 new taxpayer minimum tax (Safi)",
+   "input": {
+    "first_time_filer": true,
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 430000,
+      "tds": 0
+     }
+    ],
+    "investments": [
+     {
+      "category": "dps",
+      "amount": 96000
+     }
+    ]
+   },
+   "expect": {
+    "net": 1000
+   }
+  },
+  {
+   "name": "p70 incentive Jul-Sep (Rouf)",
+   "input": {
+    "filing_date": "2026-09-15",
+    "employment": [
+     {
+      "receipts": 1260000
+     }
+    ],
+    "investments": [
+     {
+      "category": "life_insurance",
+      "amount": 50000
+     },
+     {
+      "category": "dps",
+      "amount": 150000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 100000
+     }
+    ]
+   },
+   "expect": {
+    "rebate": 25200,
+    "payable_173": 25800,
+    "net": 24510
+   }
+  },
+  {
+   "name": "p70 extra Jan-Mar (Rouf)",
+   "input": {
+    "filing_date": "2027-02-10",
+    "employment": [
+     {
+      "receipts": 1260000
+     }
+    ],
+    "investments": [
+     {
+      "category": "life_insurance",
+      "amount": 50000
+     },
+     {
+      "category": "dps",
+      "amount": 150000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 100000
+     }
+    ]
+   },
+   "expect": {
+    "net": 28800
+   }
+  },
+  {
+   "name": "p70 extra Apr-Jun (Rouf)",
+   "input": {
+    "filing_date": "2027-05-10",
+    "employment": [
+     {
+      "receipts": 1260000
+     }
+    ],
+    "investments": [
+     {
+      "category": "life_insurance",
+      "amount": 50000
+     },
+     {
+      "category": "dps",
+      "amount": 150000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 100000
+     }
+    ]
+   },
+   "expect": {
+    "net": 30800
+   }
+  },
+  {
+   "name": "p76 two cars, surcharge (Rubel)",
+   "input": {
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 1600000,
+      "tds": 0
+     }
+    ],
+    "net_wealth": 85000000,
+    "cars": [
+     {
+      "cc": 2000
+     },
+     {
+      "cc": 3000
+     }
+    ]
+   },
+   "expect": {
+    "car_ait": 350000,
+    "surcharge": 19000,
+    "env_surcharge": 150000,
+    "total_tax": 519000
+   }
+  },
+  {
+   "name": "p77 car + EV (Rakhal)",
+   "input": {
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Income",
+      "amount": 1500000,
+      "tds": 0
+     }
+    ],
+    "net_wealth": 85000000,
+    "cars": [
+     {
+      "cc": 2000
+     },
+     {
+      "kw": 400,
+      "electric": true
+     }
+    ]
+   },
+   "expect": {
+    "car_ait": 162500,
+    "total_tax": 187000,
+    "net": 24500
+   }
+  },
+  {
+   "name": "p80 late return (Shahadat)",
+   "input": {
+    "filing_date": "2027-07-15",
+    "employment": [
+     {
+      "receipts": 600000
+     }
+    ],
+    "agriculture": 650000,
+    "agro_20a": 700000,
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 40000,
+      "tds": 4000
+     }
+    ],
+    "investments": [
+     {
+      "category": "life_insurance",
+      "amount": 60000
+     },
+     {
+      "category": "dps",
+      "amount": 100000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 400000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 1790000,
+    "payable_173": 179800,
+    "net": 197780
+   }
+  },
+  {
+   "name": "p88 bank employee, govt pay scale (Shariful)",
+   "input": {
+    "employment": [
+     {
+      "govt_pay_scale": true,
+      "receipts": 603500
+     }
+    ],
+    "investments": [
+     {
+      "category": "pf",
+      "amount": 48000
+     },
+     {
+      "category": "welfare_fund",
+      "amount": 1800
+     },
+     {
+      "category": "group_insurance",
+      "amount": 1200
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 20350,
+    "net": 15250
+   }
+  },
+  {
+   "name": "p90 private employee, 30% surcharge (Mahbuba)",
+   "input": {
+    "category": "woman",
+    "employment": [
+     {
+      "receipts": 1293000,
+      "tds": 36000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "other",
+      "description": "House property",
+      "amount": 130000,
+      "tds": 0
+     },
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 110000,
+      "tds": 11000
+     }
+    ],
+    "agriculture": 60000,
+    "net_wealth": 205000000,
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 250000
+     },
+     {
+      "category": "life_insurance",
+      "amount": 60000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 1162000,
+    "gross_tax": 92400,
+    "rebate": 31000,
+    "surcharge": 27720,
+    "net": 42120
+   }
+  },
+  {
+   "name": "p93 salary + land gain (Saurav)",
+   "input": {
+    "employment": [
+     {
+      "receipts": 915000,
+      "tds": 36000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Sanchayapatra",
+      "amount": 300000,
+      "tds": 30000
+     },
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 350000,
+      "tds": 35000
+     }
+    ],
+    "special_rate_income": [
+     {
+      "kind": "cg_long",
+      "amount": 3000000,
+      "tds": 450000
+     }
+    ]
+   },
+   "expect": {
+    "total_tax": 572000,
+    "net": 21000
+   }
+  },
+  {
+   "name": "p95 teacher, tuition, 10% surcharge (Toufiqur)",
+   "input": {
+    "employment": [
+     {
+      "receipts": 780000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "other",
+      "description": "Tuition",
+      "amount": 1536000,
+      "tds": 0
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 400000
+     }
+    ],
+    "net_wealth": 44000000
+   },
+   "expect": {
+    "gross_tax": 304000,
+    "surcharge": 30400,
+    "total_tax": 294400
+   }
+  },
+  {
+   "name": "p97 artist, woman (Sanchari)",
+   "input": {
+    "category": "woman",
+    "business": [
+     {
+      "net_income": 792000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 36300
+   }
+  },
+  {
+   "name": "p99 doctor (Mehedi)",
+   "input": {
+    "employment": [
+     {
+      "receipts": 1320000
+     }
+    ],
+    "business": [
+     {
+      "net_income": 5400000
+     }
+    ],
+    "investments": [
+     {
+      "category": "rpf",
+      "amount": 168000
+     },
+     {
+      "category": "dps",
+      "amount": 180000
+     },
+     {
+      "category": "sanchayapatra",
+      "amount": 800000
+     },
+     {
+      "category": "mutual_fund",
+      "amount": 1500000
+     }
+    ]
+   },
+   "expect": {
+    "total_income": 6280000,
+    "gross_tax": 1494000,
+    "rebate": 188400,
+    "tax_after_rebate": 1305600
+   }
+  },
+  {
+   "name": "p100 engineer, consultancy (Snigdha)",
+   "input": {
+    "employment": [
+     {
+      "receipts": 1800000
+     }
+    ],
+    "business": [
+     {
+      "net_income": 1360000,
+      "tds": 240000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 180000,
+      "tds": 18000
+     }
+    ],
+    "advance_tax": 80000
+   },
+   "expect": {
+    "gross_tax": 500000,
+    "net": 162000
+   }
+  },
+  {
+   "name": "p102 senior businessman, minimum tax (Kazi)",
+   "input": {
+    "category": "senior",
+    "business": [
+     {
+      "net_income": 530000
+     }
+    ],
+    "investments": [
+     {
+      "category": "sanchayapatra",
+      "amount": 100000
+     }
+    ]
+   },
+   "expect": {
+    "gross_tax": 8000,
+    "net": 5000
+   }
+  },
+  {
+   "name": "p105 importer, dividend, gold gain, car (Saiful)",
+   "input": {
+    "rent": [
+     {
+      "annual_rent": 420000
+     }
+    ],
+    "business": [
+     {
+      "net_income": 4117500,
+      "turnover": 41000000,
+      "tds": 750000
+     }
+    ],
+    "other_income": [
+     {
+      "head": "financial_assets",
+      "description": "Bank interest",
+      "amount": 250000,
+      "tds": 25000
+     },
+     {
+      "head": "financial_assets",
+      "description": "Sanchayapatra",
+      "amount": 200000,
+      "tds": 20000
+     }
+    ],
+    "special_rate_income": [
+     {
+      "kind": "dividend",
+      "amount": 100000,
+      "tds": 10000
+     },
+     {
+      "kind": "cg_gold_jewellery",
+      "amount": 300000
+     }
+    ],
+    "cars": [
+     {
+      "cc": 2500
+     }
+    ],
+    "net_wealth": 38000000
+   },
+   "expect": {
+    "total_income": 5282500,
+    "total_tax": 1104750,
+    "net": 224750
+   }
+  }
+ ]
+}

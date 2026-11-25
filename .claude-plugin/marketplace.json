@@ -1,0 +1,8 @@
+{
+  "name": "bd-income-tax",
+  "owner": { "name": "Fahim Foysal", "url": "https://github.com/fahim-foysal" },
+  "description": "Bangladesh income tax skills by tax year",
+  "plugins": [
+    { "name": "bd-income-tax-return", "source": "./", "description": "Bangladesh individual income tax, tax year 2026-27" }
+  ]
+}
