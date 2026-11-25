@@ -1,0 +1,37 @@
+{
+  "_note": "Anonymised figures from a real 2026-27 filing (salaried, first-time filer, filed in November). Expected: total income 6,02,683.16; rebate 18,080.49; net payable 1,785.35; IT-10B difference 0.",
+  "first_time_filer": true,
+  "filing_date": "2026-11-25",
+  "employment": [
+    {"employer": "Private employer", "receipts": 900000, "tds": 0}
+  ],
+  "other_income": [
+    {"head": "financial_assets", "description": "Savings account interest (2 half-yearly postings)", "amount": 2683.16, "tds": 402.48}
+  ],
+  "investments": [
+    {"category": "dps", "description": "4 bank DPS accounts, Jul-Jun installments", "amount": 75000},
+    {"category": "mutual_fund", "description": "Open-end mutual fund (62,999.44 + 40,110 paid 30 June)", "amount": 103109.44},
+    {"category": "donation_sro", "description": "Donation to an NBR-approved foundation", "amount": 3400}
+  ],
+  "wealth": {
+    "opening_net_wealth": 191499.23,
+    "assets": [
+      {"description": "Mutual fund at cost incl. fractional amount", "amount": 103122},
+      {"description": "DPS", "amount": 75000},
+      {"description": "Gold 7.73 g purchased", "amount": 150000},
+      {"description": "Gold 5.14 g received as gift", "amount": 100000},
+      {"description": "Bank balance 30 June", "amount": 116960.19},
+      {"description": "Cash in hand", "amount": 12000}
+    ],
+    "liabilities": [],
+    "other_receipts": [
+      {"description": "Gift from parents", "amount": 102000},
+      {"description": "Gift from friends abroad (remittance + incentive)", "amount": 10007.59},
+      {"description": "Non-income receipts", "amount": 11704},
+      {"description": "Gift of gold jewellery", "amount": 100000}
+    ],
+    "other_outflows": [
+      {"description": "Donation", "amount": 3400}
+    ]
+  }
+}
