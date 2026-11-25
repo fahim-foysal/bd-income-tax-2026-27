@@ -25,11 +25,12 @@ It's designed to keep your return **accurate**. It will show you every legal way
 
 ## Install
 
-**Claude.ai / Claude desktop app** (code execution must be on)
+**Claude.ai / Claude desktop app**
 1. Download `bd-income-tax-return-2026-27.zip` from the [latest release](https://github.com/fahim-foysal/bd-income-tax-2026-27/releases/latest).
-2. In Claude, open **Customize → Skills** ([claude.ai/customize/skills](https://claude.ai/customize/skills)), upload the ZIP and switch the skill on.
+2. Turn on code execution: **Settings → Capabilities** ([claude.ai/settings/capabilities](https://claude.ai/settings/capabilities)) → **Code execution and file creation** (called **Create and edit files** in the newer Settings layout).
+3. Open **Customize → Skills** ([claude.ai/customize/skills](https://claude.ai/customize/skills)) → **+** → **Create skill** → **Upload a skill**, choose the ZIP and switch the skill on.
 
-Team / Enterprise admins can add it once for the whole organisation.
+On a Team or Enterprise plan, an admin must first allow code execution and skills in **Organization settings**. Admins can also add the skill once for the whole organisation.
 
 **Claude Code** (as a plugin, gets updates):
 ```
