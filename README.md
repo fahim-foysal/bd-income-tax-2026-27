@@ -94,6 +94,9 @@ Pull requests are welcome, especially more real filings and non-resident cases.
 - **Reads:** only the files you give Claude for the task (salary certificate, bank statements, investment certificates).
 - When you ask it to help on etaxnbr.gov.bd, Claude uses its own browser tools and never presses the final *Submit Return* without your explicit go-ahead. You log in and pay yourself.
 
+## Privacy
+The plugin stores and sends nothing. See the [privacy policy](PRIVACY.md).
+
 ## Disclaimer
 This is not legal or tax advice. It was tested on one real return; tax law and the e-Return portal change. You are responsible for the return you sign: check the figures against the official NBR guide, keep your proofs, and consult a tax practitioner for anything complex.
 

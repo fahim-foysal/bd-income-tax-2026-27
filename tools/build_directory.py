@@ -57,6 +57,9 @@ Claude computes the tax step by step from the rules in this plugin, and checks i
 - **Sends:** nothing. No network calls, MCP servers or hooks, and no data is stored. Your documents stay in your Claude conversation.
 - When you ask it to help on etaxnbr.gov.bd, Claude never presses the final *Submit Return* without your explicit go-ahead. You log in and pay yourself.
 
+## Privacy
+The plugin stores and sends nothing. See the [privacy policy](PRIVACY.md).
+
 ## Disclaimer
 This is not legal or tax advice. Tax law and the e-Return portal change. You are responsible for the return you sign: check the figures against the official NBR guide, keep your proofs, and consult a tax practitioner for anything complex.
 
@@ -82,7 +85,7 @@ def build(src: Path, out: Path):
     manifest["description"] += " No-code edition: Claude computes from the bundled rules and NBR worked examples."
     (out / ".claude-plugin/plugin.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
     shutil.copy(src / manifest["icon"], out / manifest["icon"])
-    for name in ("LICENSE", ".gitignore"):
+    for name in ("LICENSE", ".gitignore", "PRIVACY.md"):
         shutil.copy(src / name, out / name)
     (out / "README.md").write_text(README)
 
